@@ -86,9 +86,6 @@ $(document).ready(function(){
 
 
         // 우측 TOP 버튼
-        var height=$(document).scrollTop();
-        console.log(height);
-
         if($(this).scrollTop() > 500){
             $('.right_menu').fadeIn();
         }else{
