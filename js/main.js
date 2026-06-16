@@ -1,232 +1,192 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
-        // nav바 상단 고정
-        // if($(document).scrollTop() > 50){
-        //     $('.header_middle').css({
-        //         position: 'fixed',
-        //         top: '0px',
-        //         left: '0',
-        //         width: '100%',
-        //         backgroundColor: '#000',
-        //         zIndex: '999',
-        //         display: 'inline-block'
-        //     })
-        //     $('.header_middle .top_blank').remove();
-        //     $('.header_middle').prepend('<div class="top_blank"><h2>semo</h2></div>');
+'use strict';
 
-        //     if($(document).scrollTop() > 500){
-        //         $('.header_top').fadeIn();
-        //         $('.header_top').css({
-        //             position: 'fixed',
-        //             top: '150px',
-        //             right: '50px',
-        //             backgroundColor: '#000',
-        //             width: '200px',
-        //             height: '420px',
-        //             display: 'block',
-        //             zIndex: '999',
-        //             borderRadius: '10px',
-        //         })
-        //         $('.header_top .top_menu').css({
-        //             marginLeft: '50px'
-        //         })
-        //         $('.header_top .top_menu li').css({
-        //             float: 'none',
-        //         })
-        //         $('.header_top .search').css({
-        //             margin: '10px 20px'
-        //         })
-        //         $('.header_top .kakao').css({
-        //             margin: '10px'
-        //         })
-        //         // $('.header_top .close_btn').remove();
-        //         // $('.header_top .side_semo').remove();
-        //         // $('.header_top').prepend('<div class="close_btn"><img src="/img/close_btn.png" alt="닫기"></div>')
-        //         // $('.header_top').prepend('<div class="side_semo"><h1>#SEMO</h1></div>')
-        //     }else{
-        //         $('.header_top').css({
-        //             position: 'absolute',
-        //             top: '0px',
-        //             right: '0px',
-        //             backgroundColor: 'none',
-        //             width: '950px',
-        //             height: '50px',
-        //             display: 'inline-block',
-        //             zIndex: '0',
-        //             borderRadius: '0px'
-        //         })
-        //         $('.header_top .top_menu').css({
-        //             marginLeft: '0px'
-        //         })
-        //         $('.header_top .top_menu li').css({
-        //             float: 'left',
-        //         })
-        //         $('.header_top .search').css({
-        //             margin: '5px 0 0 250px'
-        //         })
-        //         $('.header_top .kakao').css({
-        //             margin: '5px 0 0 0'
-        //         })
-        //         // $('.header_top .close_btn').remove();
-        //         // $('.header_top .side_semo').remove();
-        //     }
-        // }else{
-        //     $('.header_middle').css({
-        //         position: 'absolute',
-        //         top: '50px',
-        //         left: '140px',
-        //         width: '963.07px',
-        //         backgroundColor: 'none',
-        //         zIndex: '10',
-        //         display: 'block'
-        //     })
-        //     $('.header_middle .top_blank').remove();
-        //     $('.header_top').css('display','inline-block');
-        // }
+/* =============================================
+   HEADER — scroll shadow
+   ============================================= */
+const header      = document.getElementById('header');
+const scrollTopBtn = document.getElementById('scrollTopBtn');
 
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 8);
+  scrollTopBtn.classList.toggle('show', y > 400);
+}, { passive: true });
 
-        // 우측 TOP 버튼
-        if($(this).scrollTop() > 500){
-            $('.right_menu').fadeIn();
-        }else{
-            $('.right_menu').fadeOut();
-        }
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
-        if($(this).scrollTop() > 3450){
-            $('.right_menu').css({
-                position:'absolute',
-                bottom:'500px',
-                right:'80px'
-            })
-        }else{
-            $('.right_menu').css({
-                position: 'fixed',
-                bottom: '100px',
-                right: '80px'
-            })
-        }
-    })
+/* =============================================
+   SEARCH TOGGLE
+   ============================================= */
+const searchToggle = document.querySelector('.search-toggle');
+const searchBar    = document.getElementById('searchBar');
 
+searchToggle.addEventListener('click', () => {
+  const open = searchBar.classList.toggle('open');
+  searchToggle.setAttribute('aria-expanded', String(open));
+  if (open) searchBar.querySelector('input').focus();
+});
 
-    // nav bar sub_category
-    $('.acc').each(function(){
-        $(this).mouseenter(function(){
-            $('.acc > .sub_category').slideDown();
-        })
-        $(this).mouseleave(function(){
-            $('.acc > .sub_category').slideUp();
-        })
-    })
-    $('.community').each(function(){
-        $(this).mouseenter(function(){
-            $('.community > .community_menu').slideDown();
-        })
-        $(this).mouseleave(function(){
-            $('.community > .community_menu').slideUp();
-        })
-    })
+/* =============================================
+   MOBILE MENU
+   ============================================= */
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuClose  = document.getElementById('menuClose');
+const overlay    = document.getElementById('overlay');
 
-    // 메인슬라이드
-    var count=1;
-    var slide = setInterval(func_slide, 3000,'next');
-    function func_slide(dir){
-        if(dir == 'next'){
-            $('.slide_list').animate({
-                left:'-1100px'
-            },800,function(){
-                $('.slide_list').append($('.slide_list > li:first'))
-                $('.slide_list').css('left','0px')
-            })
-            count++;
-            if(count>5) count=1;
-        }else{
-            $('.slide_list').prepend($('.slide_list > li:last'))
-            $('.slide_list').css('left','-1920px')
-            $('.slide_list').animate({
-                left:'0px'
-            },800)
-            count--;
-            if(count<1) count=5;
-        }
-    }
-    // 메인슬라이드 컨트롤 버튼
-    $('.main_next').on('click',function(e){
-        e.preventDefault();
-        clearInterval(slide)
-        if($('.slide').is(':animated')==false){
-            $('.slide_list').animate({
-                left:'-1100px'
-            },800,function(){
-                $('.slide_list').append($('.slide_list > li:first'))
-                $('.slide_list').css('left','0px')
-            })
-        }
-        $('.main_stop').css('display','none');
-        $('.main_play').css('display','inline');
-    })
-    $('.main_prev').on('click',function(e){
-        e.preventDefault();
-        clearInterval(slide)
-        if($('.slide').is(':animated')==false){
-            $('.slide_list').prepend($('.slide_list > li:last'))
-            $('.slide_list').css('left','-1100px')
-            $('.slide_list').animate({
-                left:'0px'
-            },800)
-        }
-        $('.main_stop').css('display','none');
-        $('.main_play').css('display','inline');
-    })
-    $('.main_stop').on('click',function(e){
-        e.preventDefault();
-        clearInterval(slide);
-        $(this).css('display','none');
-        $('.main_play').css('display','inline');
-    })
-    $('.main_play').on('click',function(e){
-        e.preventDefault();
-        slide=setInterval(func_slide,3000,'next')
-        $(this).css('display','none');
-        $('.main_stop').css('display','inline');
-    })
+function openMenu() {
+  mobileMenu.classList.add('open');
+  overlay.classList.add('show');
+  hamburger.classList.add('open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  overlay.classList.remove('show');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
 
-    // Weekly Best Top 10으로 이동하는 버튼
-    $('.scroll').on('click',function(){
-        $('html,body').animate({
-            scrollTop : 3400
-        },400);
-        return false;
-    })
+hamburger.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
 
-    $('.notice_app .notice_inner .link_slide a').on('mouseenter',function(){
-        if($(this).find('img').is(':animated')==false){
-            $(this).find('img').animate({
-                left: '200px'
-            },600)
-            $(this).find('span').fadeIn(600);
-        }
-    })
-    $('.notice_app .notice_inner .link_slide a').on('mouseleave',function(){
-        $(this).find('img').animate({
-            left: '0px'
-        },600)
-        $(this).find('span').fadeOut(600);
-    })
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMenu();
+});
 
-    var num=0;
-    $('.hoodie_group > li').on({
-        mouseenter:function(){
-            num=$(this).index();
-            $('.sec06_right > div').hide();
-            $('.sec06_right > div').eq(num).show();
-        }
-    })
+/* Mobile accordion sub-menus */
+document.querySelectorAll('.mobile-menu__toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const sub  = btn.nextElementSibling;
+    const open = sub.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+});
 
-    // 우측 Top버튼
-    $('.right_menu').click(function(){
-        $('html,body').animate({
-            scrollTop : 0
-        },400);
-        return false;
-    })
-})
+/* =============================================
+   HERO SLIDER
+   ============================================= */
+const sliderTrack = document.getElementById('sliderTrack');
+const dots        = Array.from(document.querySelectorAll('.slider__dot'));
+const prevBtn     = document.getElementById('sliderPrev');
+const nextBtn     = document.getElementById('sliderNext');
+const stopBtn     = document.getElementById('sliderStop');
+const playBtn     = document.getElementById('sliderPlay');
+const TOTAL       = dots.length;
+let current       = 0;
+let autoTimer     = null;
+
+function goTo(idx) {
+  current = ((idx % TOTAL) + TOTAL) % TOTAL;
+  sliderTrack.style.transform = `translateX(-${current * 100}%)`;
+  dots.forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+    d.setAttribute('aria-selected', String(i === current));
+  });
+}
+
+function startAuto() {
+  autoTimer = setInterval(() => goTo(current + 1), 4000);
+}
+function stopAuto() {
+  clearInterval(autoTimer);
+  autoTimer = null;
+}
+
+prevBtn.addEventListener('click', () => { goTo(current - 1); stopAuto(); stopBtn.hidden = true; playBtn.hidden = false; });
+nextBtn.addEventListener('click', () => { goTo(current + 1); stopAuto(); stopBtn.hidden = true; playBtn.hidden = false; });
+stopBtn.addEventListener('click', () => { stopAuto(); stopBtn.hidden = true; playBtn.hidden = false; });
+playBtn.addEventListener('click', () => { startAuto(); playBtn.hidden = true; stopBtn.hidden = false; });
+dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+startAuto();
+
+/* Touch swipe */
+let touchX = 0;
+sliderTrack.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+sliderTrack.addEventListener('touchend',   e => {
+  const diff = touchX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 48) goTo(diff > 0 ? current + 1 : current - 1);
+}, { passive: true });
+
+/* =============================================
+   MERCHANDISE TABS
+   ============================================= */
+const tabBtns   = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+
+    tabBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    tabPanels.forEach(p => {
+      p.classList.remove('active');
+      p.hidden = true;
+    });
+
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    const panel = document.getElementById(`tab-${target}`);
+    if (panel) { panel.classList.add('active'); panel.hidden = false; }
+  });
+});
+
+/* =============================================
+   WEEKLY BEST — hover preview
+   ============================================= */
+const weeklyItems   = document.querySelectorAll('.weekly-best__item');
+const previewImg    = document.getElementById('weeklyPreviewImg');
+const previewRank   = document.getElementById('weeklyPreviewRank');
+const previewName   = document.getElementById('weeklyPreviewName');
+const previewPrice  = document.getElementById('weeklyPreviewPrice');
+
+const bestData = [
+  { img: 'img/hoodie_big_01.jpg', name: '피플데님아노락-Top (2Color)',   price: '￦78,000', rank: '01' },
+  { img: 'img/hoodie_big_02.jpg', name: '엠오엠 워싱-후드 (4Color)',     price: '￦41,000', rank: '02' },
+  { img: 'img/hoodie_big_03.jpg', name: '파이핑스퀘어-니트 (4Color)',    price: '￦31,000', rank: '03' },
+  { img: 'img/hoodie_big_04.jpg', name: '파이핑스퀘어-니트 (4Color)',    price: '￦31,000', rank: '04' },
+  { img: 'img/hoodie_big_05.jpg', name: '키코하이넥JK (2Color)',          price: '￦89,000', rank: '05' },
+  { img: 'img/hoodie_big_06.jpg', name: '통카라-MTM (4Color)',            price: '￦30,000', rank: '06' },
+  { img: 'img/hoodie_big_07.jpg', name: '메이트톤톤-후드 (3Color)',       price: '￦45,000', rank: '07' },
+  { img: 'img/hoodie_big_08.jpg', name: '버터플라이-MTM (3Color)',        price: '￦89,000', rank: '08' },
+  { img: 'img/hoodie_big_09.jpg', name: '루즈컷팅-MTM (6Color)',          price: '￦46,000', rank: '09' },
+  { img: 'img/hoodie_big_10.jpg', name: '루즈컷팅-Nb (5Color)',           price: '￦46,000', rank: '10' },
+];
+
+if (previewImg) {
+  weeklyItems.forEach((item, i) => {
+    item.addEventListener('mouseenter', () => {
+      weeklyItems.forEach(it => it.classList.remove('active'));
+      item.classList.add('active');
+      const d = bestData[i];
+      previewImg.src   = d.img;
+      previewImg.alt   = d.name;
+      if (previewRank)  previewRank.textContent  = d.rank;
+      if (previewName)  previewName.textContent  = d.name;
+      if (previewPrice) previewPrice.textContent = d.price;
+    });
+  });
+}
+
+/* =============================================
+   SMOOTH SCROLL — banner GO button
+   ============================================= */
+document.querySelectorAll('.js-scroll-to').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.getElementById(el.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
