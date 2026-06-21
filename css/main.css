@@ -480,6 +480,7 @@ body {
   transition: background var(--dur-fast);
 }
 .slider__control:hover { background: rgba(0,0,0,.65); }
+.slider__control[hidden] { display: none; }
 
 /* =============================================
    BANNER SECTION
