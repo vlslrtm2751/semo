@@ -13,6 +13,8 @@
   --gray-300:   #cccccc;
   --gray-400:   #aaaaaa;
   --gray-500:   #888888;
+  /* 흰 배경에서 4.54:1. 본문 크기 글자가 WCAG AA 를 넘는 가장 밝은 회색이다. */
+  --gray-600:   #767676;
   --gray-700:   #444444;
   --dark:       #1a1a1a;
   --kakao:      #fee500;
@@ -85,6 +87,44 @@ body {
   transition: top var(--dur-fast);
 }
 .skip-link:focus { top: 0; }
+
+/* 화면에서만 감추고 스크린리더에는 남긴다. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =============================================
+   FOCUS — 키보드 사용자에게만 보이는 링
+   ============================================= */
+:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* 어두운 배경 위에서는 검정 링이 보이지 않는다. */
+.brand-section :focus-visible,
+.footer :focus-visible,
+.banner-section :focus-visible,
+.slider :focus-visible,
+.weekly-best__preview-link:focus-visible {
+  outline-color: var(--white);
+}
+/* 마우스 클릭에는 링을 띄우지 않는다. */
+:focus:not(:focus-visible) { outline: none; }
+
+/* 고정 헤더에 앵커 대상이 가리지 않도록 여유를 준다. */
+:target,
+[id="weeklyBest"],
+.merchandise-section,
+#main { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 /* =============================================
    HEADER
@@ -244,6 +284,12 @@ body {
   border-radius: var(--r-full);
   padding: 9px 18px;
 }
+/* 입력창 자체의 링은 지우되, 알약 테두리 전체가 대신 링 역할을 한다.
+   포커스 위치를 숨기는 게 아니라 옮기는 것이다. */
+.search-form:focus-within {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
 .search-form input {
   flex: 1;
   border: none;
@@ -305,7 +351,7 @@ body {
   font-size: 13px;
   border-bottom: 1px solid var(--gray-100);
 }
-.mobile-menu__auth a { font-weight: 600; }
+.mobile-menu__auth a { font-weight: 700; }
 .mobile-menu__auth a:hover { text-decoration: underline; }
 .mobile-menu__auth span { margin: 0 8px; color: var(--gray-400); }
 
@@ -528,7 +574,7 @@ body {
   gap: 10px;
   color: var(--white);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: .25em;
   text-transform: uppercase;
   transition: opacity var(--dur-base);
@@ -704,9 +750,10 @@ body {
 .tab-btn {
   padding: 12px 22px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: .06em;
-  color: var(--gray-400);
+  /* 비활성 탭도 읽을 수 있어야 한다. gray-400 은 대비 2.32:1 로 미달이었다. */
+  color: var(--gray-600);
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
   white-space: nowrap;
@@ -759,7 +806,7 @@ body {
 .product-card__overlay span {
   color: var(--white);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: .06em;
   border: 1px solid rgba(255,255,255,.75);
   padding: 7px 15px;
@@ -787,7 +834,7 @@ body {
   border: 1px solid var(--black);
   border-radius: var(--r-full);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: .12em;
   transition: background var(--dur-fast), color var(--dur-fast);
 }
@@ -809,33 +856,36 @@ body {
 
 /* Thumbnail list */
 .weekly-best__list { display: flex; flex-direction: column; }
-.weekly-best__item {
+/* 레이아웃은 링크가 가진다. 클릭 영역과 포커스 영역이 같아야 하기 때문이다. */
+.weekly-best__link {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 10px 14px;
   border-radius: var(--r);
-  cursor: pointer;
   transition: background var(--dur-fast), box-shadow var(--dur-fast);
   border: 1px solid transparent;
 }
-.weekly-best__item:hover,
-.weekly-best__item.active {
+.weekly-best__link:hover,
+.weekly-best__link:focus-visible,
+.weekly-best__item.active .weekly-best__link {
   background: var(--white);
   box-shadow: var(--shadow-sm);
   border-color: var(--gray-200);
 }
+/* 19px + weight 900 은 WCAG 가 말하는 '큰 글자'라 대비 기준이 4.5:1 에서 3:1 로 내려간다.
+   덕분에 순위가 낮을수록 흐려지는 위계를 유지하면서도 전부 읽을 수 있다. */
 .weekly-best__rank {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 900;
-  color: var(--gray-300);
-  min-width: 26px;
+  color: var(--gray-500);
+  min-width: 30px;
   line-height: 1;
   flex-shrink: 0;
 }
 .weekly-best__item:nth-child(1) .weekly-best__rank { color: var(--black); }
 .weekly-best__item:nth-child(2) .weekly-best__rank,
-.weekly-best__item:nth-child(3) .weekly-best__rank { color: var(--gray-500); }
+.weekly-best__item:nth-child(3) .weekly-best__rank { color: var(--gray-700); }
 .weekly-best__item.active .weekly-best__rank { color: var(--black); }
 
 .weekly-best__thumb {
@@ -892,7 +942,7 @@ body {
 }
 .weekly-best__preview-name {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 4px;
 }
 .weekly-best__preview-price {
@@ -956,7 +1006,7 @@ body {
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.55);
   margin-bottom: 4px;
   margin-top: 14px;
 }
@@ -968,9 +1018,10 @@ body {
   font-size: 12px;
 }
 .footer__dl dt {
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
-  color: rgba(255,255,255,.45);
+  /* .45 는 어두운 배경에서 4.47:1 로 AA 에 아슬하게 못 미친다. */
+  color: rgba(255,255,255,.55);
 }
 .footer__dl dd { color: rgba(255,255,255,.65); }
 
@@ -1110,7 +1161,7 @@ body {
 
   /* Weekly Best */
   .weekly-best { padding: 56px 0; }
-  .weekly-best__item { padding: 9px 8px; }
+  .weekly-best__link { padding: 9px 8px; }
   .weekly-best__thumb { width: 44px; height: 56px; }
 
   /* Footer */
@@ -1127,4 +1178,33 @@ body {
 @media (max-width: 479px) {
   .brand-section__images { grid-template-columns: 1fr; max-width: 260px; }
   .app-section__buttons { flex-direction: column; max-width: 200px; }
+}
+
+/* =============================================
+   REDUCED MOTION
+   움직임에 민감한 사용자를 위해 애니메이션을 걷어낸다.
+   기능은 그대로 두고 전환만 즉시 일어나게 한다.
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html { scroll-behavior: auto; }
+
+  /* 스크롤 유도선의 무한 반복은 특히 거슬린다. */
+  .scroll-line { animation: none; }
+
+  /* 시차 배경은 스크롤할 때마다 화면이 흔들리는 느낌을 준다. */
+  .banner-section__parallax { background-attachment: scroll; }
+
+  /* 확대 효과 대신 아무 일도 일어나지 않게 둔다. */
+  .brand-img-link:hover img,
+  .product-card__img-wrap:hover img,
+  .weekly-best__preview-link:hover .weekly-best__preview-img { transform: none; }
 }

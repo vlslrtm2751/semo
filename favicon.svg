@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="SEMO">
+  <!-- 브랜드 마크: 원 안의 삼각형. '세모'가 곧 삼각형이라는 데서 온 형태다. -->
+  <rect width="32" height="32" rx="7" fill="#111111"/>
+  <circle cx="16" cy="16" r="10.5" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+  <path d="M19.5 10.5v11L10 16z" fill="#ffffff"/>
+</svg>
