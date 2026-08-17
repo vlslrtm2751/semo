@@ -1164,10 +1164,28 @@ body {
   .weekly-best__link { padding: 9px 8px; }
   .weekly-best__thumb { width: 44px; height: 56px; }
 
-  /* Footer */
-  .footer { padding: 48px 0 24px; }
-  .footer__grid { grid-template-columns: 1fr; gap: 28px; }
-  .footer__bottom { flex-direction: column; align-items: flex-start; }
+  /* Footer — 한 열로 접히면 왼쪽 정렬이 화면 오른쪽을 비워 보이게 한다.
+     아래 여백은 맨 위로 가기 버튼(42px + 18px 띄움) 자리다.
+     가운데 정렬이라 마지막 줄이 오른쪽까지 닿아 버튼과 겹친다. */
+  .footer { padding: 48px 0 76px; }
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+  .footer__col ul { align-items: center; }
+  /* 회사 정보는 이름과 값이 짝을 이루는 표다. 가운데 정렬하면 짝이 어긋나
+     읽기 어려워지므로, 블록만 가운데로 옮기고 안쪽은 왼쪽으로 둔다. */
+  .footer__dl {
+    grid-template-columns: auto auto;
+    justify-content: center;
+    text-align: left;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
   .scroll-top-btn { bottom: 18px; right: 18px; }
 }
