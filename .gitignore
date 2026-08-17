@@ -1,0 +1,10 @@
+# 이미지 최적화 전 원본.
+# git 히스토리(c41068b 이전)에도 남아 있으므로 저장소에 중복 보관하지 않는다.
+img/original/
+
+# 브레인스토밍 목업 서버 작업 파일
+.superpowers/
+
+# OS / 편집기
+Thumbs.db
+.DS_Store
