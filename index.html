@@ -3,12 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="세모닷컴 - STREET &amp; UNISEX 대표 쇼핑몰. 최상의 품질과 최적의 가격을 보장합니다.">
-  <title>SEMO :: STREET &amp; UNISEX</title>
+  <title>SEMO 세모닷컴 | STREET &amp; UNISEX 유니섹스 스트릿 패션</title>
+  <meta name="description" content="세모닷컴(SEMO) - 스트릿 유니섹스 패션 쇼핑몰. 후드·MTM·아우터·팬츠를 최상의 품질과 최적의 가격으로 만나보세요.">
+  <link rel="canonical" href="https://vlslrtm2751.github.io/Semo/">
+  <meta name="theme-color" content="#111111">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- 카카오 공유가 주 유입 경로라 Open Graph 를 채워 둔다. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SEMO 세모닷컴">
+  <meta property="og:title" content="SEMO 세모닷컴 | STREET &amp; UNISEX">
+  <meta property="og:description" content="스트릿 유니섹스 패션 쇼핑몰. 후드·MTM·아우터·팬츠를 최상의 품질과 최적의 가격으로.">
+  <meta property="og:url" content="https://vlslrtm2751.github.io/Semo/">
+  <meta property="og:image" content="https://vlslrtm2751.github.io/Semo/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- 첫 화면을 채우는 이미지라 스타일시트와 경쟁하지 않도록 미리 받는다. -->
+  <link rel="preload" as="image" href="img/main_slide01.jpg" fetchpriority="high">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OnlineStore",
+    "name": "SEMO 세모닷컴",
+    "alternateName": "(주)에이치쓰리 어페럴",
+    "url": "https://vlslrtm2751.github.io/Semo/",
+    "logo": "https://vlslrtm2751.github.io/Semo/apple-touch-icon.png",
+    "image": "https://vlslrtm2751.github.io/Semo/og-image.jpg",
+    "description": "스트릿 유니섹스 패션 쇼핑몰",
+    "telephone": "+82-2-2038-4566",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "구천면로 384 동곡빌딩 5층 501-2호",
+      "addressLocality": "강동구",
+      "addressRegion": "서울특별시",
+      "addressCountry": "KR"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "12:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -20,7 +68,7 @@
       <div class="header__inner">
 
         <a class="header__logo" href="#" aria-label="SEMO 홈">
-          <img src="img/semo_logo.jpg" alt="SEMO">
+          <img src="img/semo_logo.jpg" width="176" height="126" alt="SEMO">
         </a>
 
         <nav class="header__nav" id="gnb" aria-label="주 메뉴">
@@ -97,9 +145,11 @@
   </header>
 
   <!-- ===================== MOBILE MENU ===================== -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="모바일 메뉴">
+  <!-- inert: 닫힌 동안에는 화면 밖으로 밀려 있을 뿐 탭 순서에는 남는다.
+       이게 없으면 데스크톱에서 Tab 이 보이지 않는 메뉴 안으로 들어간다. -->
+  <div class="mobile-menu" id="mobileMenu" inert aria-hidden="true" role="dialog" aria-label="모바일 메뉴">
     <div class="mobile-menu__header">
-      <a href="#" class="header__logo"><img src="img/semo_logo.jpg" alt="SEMO"></a>
+      <a href="#" class="header__logo"><img src="img/semo_logo.jpg" width="176" height="126" alt="SEMO"></a>
       <button class="btn-close" id="menuClose" aria-label="메뉴 닫기">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M18 6 6 18M6 6l12 12"/>
@@ -150,7 +200,7 @@
     </nav>
     <div class="mobile-menu__footer">
       <a href="#" class="mobile-menu__kakao">
-        <img src="img/kakao_icon.png" alt="" width="22">
+        <img src="img/kakao_icon.png" alt="" width="22" height="22">
         카카오 1:1 상담
       </a>
       <div class="mobile-menu__links">
@@ -165,24 +215,35 @@
   <!-- ===================== MAIN ===================== -->
   <main id="main">
 
+    <h1 class="sr-only">SEMO 세모닷컴 — 스트릿 유니섹스 패션 쇼핑몰</h1>
+
     <!-- 1. HERO SLIDER -->
     <section class="slider-section" aria-label="메인 슬라이드">
-      <div class="slider" id="slider">
-        <div class="slider__track" id="sliderTrack">
-          <div class="slider__slide">
-            <a href="#"><img src="img/main_slide01.jpg" alt="ART BUTTER MTM"></a>
+      <!-- APG 캐러셀 패턴. 자동재생 중에는 aria-live 를 off 로 두고,
+           사용자가 수동 조작을 시작하면 JS 가 polite 로 바꾼다. -->
+      <div class="slider" id="slider" role="group"
+           aria-roledescription="캐러셀" aria-label="추천 상품">
+        <div class="slider__track" id="sliderTrack" aria-live="off">
+          <div class="slider__slide" role="group" aria-roledescription="슬라이드" aria-label="5개 중 1번째">
+            <a href="#"><img src="img/main_slide01.jpg" width="1600" height="800"
+                             alt="ART BUTTER MTM 신상품 보기"
+                             fetchpriority="high" decoding="async"></a>
           </div>
-          <div class="slider__slide">
-            <a href="#"><img src="img/main_slide02.jpg" alt="가성비갑 레더후드자켓"></a>
+          <div class="slider__slide" role="group" aria-roledescription="슬라이드" aria-label="5개 중 2번째">
+            <a href="#"><img data-src="img/main_slide02.jpg" width="1600" height="800"
+                             alt="가성비갑 레더후드자켓 보기" decoding="async"></a>
           </div>
-          <div class="slider__slide">
-            <a href="#"><img src="img/main_slide03.jpg" alt="하쿠나티"></a>
+          <div class="slider__slide" role="group" aria-roledescription="슬라이드" aria-label="5개 중 3번째">
+            <a href="#"><img data-src="img/main_slide03.jpg" width="1600" height="800"
+                             alt="하쿠나티 보기" decoding="async"></a>
           </div>
-          <div class="slider__slide">
-            <a href="#"><img src="img/main_slide04.jpg" alt="Pigment-Deer Hoodie"></a>
+          <div class="slider__slide" role="group" aria-roledescription="슬라이드" aria-label="5개 중 4번째">
+            <a href="#"><img data-src="img/main_slide04.jpg" width="1600" height="800"
+                             alt="Pigment-Deer Hoodie 보기" decoding="async"></a>
           </div>
-          <div class="slider__slide">
-            <a href="#"><img src="img/main_slide05.jpg" alt="Authentic Alpine Club"></a>
+          <div class="slider__slide" role="group" aria-roledescription="슬라이드" aria-label="5개 중 5번째">
+            <a href="#"><img data-src="img/main_slide05.jpg" width="1600" height="800"
+                             alt="Authentic Alpine Club 보기" decoding="async"></a>
           </div>
         </div>
 
@@ -197,12 +258,14 @@
           </svg>
         </button>
 
-        <div class="slider__dots" id="sliderDots" role="tablist" aria-label="슬라이드 선택">
-          <button class="slider__dot active" role="tab" aria-selected="true"  aria-label="슬라이드 1"></button>
-          <button class="slider__dot"        role="tab" aria-selected="false" aria-label="슬라이드 2"></button>
-          <button class="slider__dot"        role="tab" aria-selected="false" aria-label="슬라이드 3"></button>
-          <button class="slider__dot"        role="tab" aria-selected="false" aria-label="슬라이드 4"></button>
-          <button class="slider__dot"        role="tab" aria-selected="false" aria-label="슬라이드 5"></button>
+        <!-- tablist 가 아니다. 대응하는 tabpanel 이 없으면 잘못된 ARIA 가 된다.
+             현재 위치는 aria-current 로 알린다. -->
+        <div class="slider__dots" id="sliderDots" role="group" aria-label="슬라이드 선택">
+          <button class="slider__dot active" type="button" aria-current="true"  aria-label="1번 슬라이드로 이동"></button>
+          <button class="slider__dot"        type="button" aria-current="false" aria-label="2번 슬라이드로 이동"></button>
+          <button class="slider__dot"        type="button" aria-current="false" aria-label="3번 슬라이드로 이동"></button>
+          <button class="slider__dot"        type="button" aria-current="false" aria-label="4번 슬라이드로 이동"></button>
+          <button class="slider__dot"        type="button" aria-current="false" aria-label="5번 슬라이드로 이동"></button>
         </div>
 
         <div class="slider__controls">
@@ -234,7 +297,7 @@
       </div>
       <div class="banner-section__logo">
         <div class="container">
-          <img src="img/main_semo.jpg" alt="세모닷컴">
+          <img src="img/main_semo.jpg" width="800" height="364" alt="세모닷컴">
         </div>
       </div>
     </section>
@@ -250,20 +313,20 @@
                최상의 품질과 최적의 가격 모두 보장합니다!<br>
                앞으로도 발전하는 세모(SEMO)를 지켜봐 주세요.</p>
             <a href="#" class="kakao-btn">
-              <img src="img/kakao_icon.png" alt="" width="22">
+              <img src="img/kakao_icon.png" alt="" width="22" height="22">
               친추하고 1:1 상담
             </a>
           </div>
           <div class="brand-section__images">
             <a href="#" class="brand-img-link">
-              <img src="img/main_content01.jpg" alt="조각셋-TOP" loading="lazy">
+              <img src="img/main_content01.jpg" width="500" height="750" alt="조각셋-TOP" loading="lazy">
               <div class="brand-img-link__overlay">
                 <span>조각셋-TOP</span>
                 <strong>￦13,900</strong>
               </div>
             </a>
             <a href="#" class="brand-img-link">
-              <img src="img/main_content04.jpg" alt="조각셋-TOP 2" loading="lazy">
+              <img src="img/main_content04.jpg" width="500" height="750" alt="조각셋-TOP 2" loading="lazy">
               <div class="brand-img-link__overlay">
                 <span>조각셋-TOP</span>
                 <strong>￦13,900</strong>
@@ -279,7 +342,7 @@
       <div class="container">
         <div class="app-section__inner">
           <div class="app-section__image">
-            <img src="img/mobile_notice.jpg" alt="세모닷컴 모바일 앱 화면" loading="lazy">
+            <img src="img/mobile_notice.jpg" width="1200" height="600" alt="세모닷컴 모바일 앱 화면" loading="lazy">
           </div>
           <div class="app-section__content">
             <h2>세모닷컴<br>모바일 앱 출시!</h2>
@@ -287,11 +350,11 @@
                앱 전용 특가 및 이벤트를 놓치지 마세요.</p>
             <div class="app-section__buttons">
               <a href="#" class="app-btn">
-                <img src="img/icon_apple.png" alt="">
+                <img src="img/icon_apple.png" width="256" height="256" alt="">
                 <div><span>Download on the</span><strong>App Store</strong></div>
               </a>
               <a href="#" class="app-btn">
-                <img src="img/icon_google.png" alt="">
+                <img src="img/icon_google.png" width="225" height="225" alt="">
                 <div><span>Get it on</span><strong>Google Play</strong></div>
               </a>
             </div>
@@ -305,20 +368,21 @@
       <div class="container">
         <h2 class="section-title">MERCHANDISE</h2>
         <div class="tabs" id="merchandiseTabs">
+          <!-- 로빙 tabindex: 활성 탭만 Tab 키로 들어오고, 탭 사이 이동은 좌우 화살표가 맡는다. -->
           <div class="tabs__nav" role="tablist" aria-label="상품 카테고리">
-            <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="best">BEST</button>
-            <button class="tab-btn"        role="tab" aria-selected="false" data-tab="top">TOP</button>
-            <button class="tab-btn"        role="tab" aria-selected="false" data-tab="pants">PANTS</button>
-            <button class="tab-btn"        role="tab" aria-selected="false" data-tab="layered">LAYERED</button>
-            <button class="tab-btn"        role="tab" aria-selected="false" data-tab="acc">ACC</button>
+            <button class="tab-btn active" type="button" role="tab" id="tabbtn-best"    aria-controls="tab-best"    aria-selected="true"  tabindex="0"  data-tab="best">BEST</button>
+            <button class="tab-btn"        type="button" role="tab" id="tabbtn-top"     aria-controls="tab-top"     aria-selected="false" tabindex="-1" data-tab="top">TOP</button>
+            <button class="tab-btn"        type="button" role="tab" id="tabbtn-pants"   aria-controls="tab-pants"   aria-selected="false" tabindex="-1" data-tab="pants">PANTS</button>
+            <button class="tab-btn"        type="button" role="tab" id="tabbtn-layered" aria-controls="tab-layered" aria-selected="false" tabindex="-1" data-tab="layered">LAYERED</button>
+            <button class="tab-btn"        type="button" role="tab" id="tabbtn-acc"     aria-controls="tab-acc"     aria-selected="false" tabindex="-1" data-tab="acc">ACC</button>
           </div>
 
           <!-- BEST -->
-          <div class="tab-panel active" id="tab-best" role="tabpanel" aria-labelledby="">
+          <div class="tab-panel active" id="tab-best" role="tabpanel" aria-labelledby="tabbtn-best" tabindex="0">
             <ul class="product-grid">
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/best01.jpg" alt="키코하이넥JK 2Color" loading="lazy">
+                  <img src="img/best01.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -326,7 +390,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/best02.jpg" alt="베스트 상품 2" loading="lazy">
+                  <img src="img/best02.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -334,7 +398,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/best03.jpg" alt="베스트 상품 3" loading="lazy">
+                  <img src="img/best03.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -342,7 +406,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/best04.jpg" alt="베스트 상품 4" loading="lazy">
+                  <img src="img/best04.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -350,7 +414,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/best05.jpg" alt="베스트 상품 5" loading="lazy">
+                  <img src="img/best05.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -361,11 +425,11 @@
           </div>
 
           <!-- TOP -->
-          <div class="tab-panel" id="tab-top" role="tabpanel" hidden>
+          <div class="tab-panel" id="tab-top" role="tabpanel" aria-labelledby="tabbtn-top" tabindex="0" hidden>
             <ul class="product-grid">
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/top01.jpg" alt="TOP 상품 1" loading="lazy">
+                  <img src="img/top01.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -373,7 +437,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/top02.jpg" alt="TOP 상품 2" loading="lazy">
+                  <img src="img/top02.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -381,7 +445,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/top03.jpg" alt="TOP 상품 3" loading="lazy">
+                  <img src="img/top03.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -389,7 +453,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/top04.jpg" alt="TOP 상품 4" loading="lazy">
+                  <img src="img/top04.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -397,7 +461,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/top05.jpg" alt="TOP 상품 5" loading="lazy">
+                  <img src="img/top05.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -408,11 +472,11 @@
           </div>
 
           <!-- PANTS -->
-          <div class="tab-panel" id="tab-pants" role="tabpanel" hidden>
+          <div class="tab-panel" id="tab-pants" role="tabpanel" aria-labelledby="tabbtn-pants" tabindex="0" hidden>
             <ul class="product-grid">
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/pants01.jpg" alt="PANTS 상품 1" loading="lazy">
+                  <img src="img/pants01.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -420,7 +484,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/pants02.jpg" alt="PANTS 상품 2" loading="lazy">
+                  <img src="img/pants02.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -428,7 +492,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/pants03.jpg" alt="PANTS 상품 3" loading="lazy">
+                  <img src="img/pants03.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -436,7 +500,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/pants04.jpg" alt="PANTS 상품 4" loading="lazy">
+                  <img src="img/pants04.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -444,7 +508,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/pants05.jpg" alt="PANTS 상품 5" loading="lazy">
+                  <img src="img/pants05.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -455,11 +519,11 @@
           </div>
 
           <!-- LAYERED -->
-          <div class="tab-panel" id="tab-layered" role="tabpanel" hidden>
+          <div class="tab-panel" id="tab-layered" role="tabpanel" aria-labelledby="tabbtn-layered" tabindex="0" hidden>
             <ul class="product-grid">
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/layered01.jpg" alt="LAYERED 상품 1" loading="lazy">
+                  <img src="img/layered01.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -467,7 +531,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/layered02.jpg" alt="LAYERED 상품 2" loading="lazy">
+                  <img src="img/layered02.jpg" width="550" height="825" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -475,7 +539,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/layered03.jpg" alt="LAYERED 상품 3" loading="lazy">
+                  <img src="img/layered03.jpg" width="550" height="825" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -483,7 +547,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/layered04.jpg" alt="LAYERED 상품 4" loading="lazy">
+                  <img src="img/layered04.jpg" width="550" height="825" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -491,7 +555,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/layered05.jpg" alt="LAYERED 상품 5" loading="lazy">
+                  <img src="img/layered05.jpg" width="550" height="825" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -502,11 +566,11 @@
           </div>
 
           <!-- ACC -->
-          <div class="tab-panel" id="tab-acc" role="tabpanel" hidden>
+          <div class="tab-panel" id="tab-acc" role="tabpanel" aria-labelledby="tabbtn-acc" tabindex="0" hidden>
             <ul class="product-grid">
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/acc01.jpg" alt="ACC 상품 1" loading="lazy">
+                  <img src="img/acc01.jpg" width="225" height="337" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -514,7 +578,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/acc02.jpg" alt="ACC 상품 2" loading="lazy">
+                  <img src="img/acc02.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -522,7 +586,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/acc03.jpg" alt="ACC 상품 3" loading="lazy">
+                  <img src="img/acc03.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -530,7 +594,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/acc04.jpg" alt="ACC 상품 4" loading="lazy">
+                  <img src="img/acc04.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -538,7 +602,7 @@
               </li>
               <li class="product-card">
                 <a href="#" class="product-card__img-wrap">
-                  <img src="img/acc05.jpg" alt="ACC 상품 5" loading="lazy">
+                  <img src="img/acc05.jpg" width="225" height="338" alt="키코하이넥JK (2Color)" loading="lazy">
                   <div class="product-card__overlay"><span>상세보기</span></div>
                 </a>
                 <p class="product-card__name">키코하이넥JK (2Color)</p>
@@ -559,91 +623,111 @@
 
           <ul class="weekly-best__list" id="weeklyList">
             <li class="weekly-best__item active" data-index="0">
-              <span class="weekly-best__rank">01</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_01.jpg" alt="피플데님아노락-Top" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>피플데님아노락-Top (2Color)</p>
-                <span>￦78,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">01</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_01.jpg" data-full="img/hoodie_big_01.jpg" width="120" height="180" alt="피플데님아노락-Top (2Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>피플데님아노락-Top (2Color)</p>
+                  <span>￦78,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="1">
-              <span class="weekly-best__rank">02</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_02.jpg" alt="엠오엠 워싱-후드" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>엠오엠 워싱-후드 (4Color)</p>
-                <span>￦41,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">02</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_02.jpg" data-full="img/hoodie_big_02.jpg" width="120" height="180" alt="엠오엠 워싱-후드 (4Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>엠오엠 워싱-후드 (4Color)</p>
+                  <span>￦41,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="2">
-              <span class="weekly-best__rank">03</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_03.jpg" alt="파이핑스퀘어-니트" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>파이핑스퀘어-니트 (4Color)</p>
-                <span>￦31,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">03</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_03.jpg" data-full="img/hoodie_big_03.jpg" width="120" height="180" alt="파이핑스퀘어-니트 (4Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>파이핑스퀘어-니트 (4Color)</p>
+                  <span>￦31,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="3">
-              <span class="weekly-best__rank">04</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_04.jpg" alt="파이핑스퀘어-니트 2" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>파이핑스퀘어-니트 (4Color)</p>
-                <span>￦31,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">04</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_04.jpg" data-full="img/hoodie_big_04.jpg" width="120" height="180" alt="파이핑스퀘어-니트 (4Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>파이핑스퀘어-니트 (4Color)</p>
+                  <span>￦31,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="4">
-              <span class="weekly-best__rank">05</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_05.jpg" alt="키코하이넥JK" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>키코하이넥JK (2Color)</p>
-                <span>￦89,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">05</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_05.jpg" data-full="img/hoodie_big_05.jpg" width="120" height="180" alt="키코하이넥JK (2Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>키코하이넥JK (2Color)</p>
+                  <span>￦89,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="5">
-              <span class="weekly-best__rank">06</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_06.jpg" alt="통카라-MTM" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>통카라-MTM (4Color)</p>
-                <span>￦30,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">06</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_06.jpg" data-full="img/hoodie_big_06.jpg" width="120" height="180" alt="통카라-MTM (4Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>통카라-MTM (4Color)</p>
+                  <span>￦30,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="6">
-              <span class="weekly-best__rank">07</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_07.jpg" alt="메이트톤톤-후드" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>메이트톤톤-후드 (3Color)</p>
-                <span>￦45,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">07</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_07.jpg" data-full="img/hoodie_big_07.jpg" width="120" height="180" alt="메이트톤톤-후드 (3Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>메이트톤톤-후드 (3Color)</p>
+                  <span>￦45,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="7">
-              <span class="weekly-best__rank">08</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_08.jpg" alt="버터플라이-MTM" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>버터플라이-MTM (3Color)</p>
-                <span>￦89,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">08</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_08.jpg" data-full="img/hoodie_big_08.jpg" width="120" height="180" alt="버터플라이-MTM (3Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>버터플라이-MTM (3Color)</p>
+                  <span>￦89,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="8">
-              <span class="weekly-best__rank">09</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_09.jpg" alt="루즈컷팅-MTM" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>루즈컷팅-MTM (6Color)</p>
-                <span>￦46,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">09</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_09.jpg" data-full="img/hoodie_big_09.jpg" width="120" height="180" alt="루즈컷팅-MTM (6Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>루즈컷팅-MTM (6Color)</p>
+                  <span>￦46,000</span>
+                </div>
+              </a>
             </li>
             <li class="weekly-best__item" data-index="9">
-              <span class="weekly-best__rank">10</span>
-              <img class="weekly-best__thumb" src="img/hoodie_big_10.jpg" alt="루즈컷팅-Nb" loading="lazy">
-              <div class="weekly-best__meta">
-                <p>루즈컷팅-Nb (5Color)</p>
-                <span>￦46,000</span>
-              </div>
+              <a class="weekly-best__link" href="#">
+                <span class="weekly-best__rank">10</span>
+                <img class="weekly-best__thumb" src="img/hoodie_thumb_10.jpg" data-full="img/hoodie_big_10.jpg" width="120" height="180" alt="루즈컷팅-Nb (5Color)" loading="lazy">
+                <div class="weekly-best__meta">
+                  <p>루즈컷팅-Nb (5Color)</p>
+                  <span>￦46,000</span>
+                </div>
+              </a>
             </li>
           </ul>
 
           <div class="weekly-best__preview">
             <a href="#" class="weekly-best__preview-link" id="weeklyPreviewLink">
               <img class="weekly-best__preview-img" id="weeklyPreviewImg"
-                   src="img/hoodie_big_01.jpg" alt="피플데님아노락-Top">
+                   src="img/hoodie_big_01.jpg" width="500" height="750" alt="피플데님아노락-Top">
               <div class="weekly-best__preview-info">
                 <span class="weekly-best__preview-ranknum" id="weeklyPreviewRank">01</span>
                 <p class="weekly-best__preview-name" id="weeklyPreviewName">피플데님아노락-Top (2Color)</p>
@@ -698,7 +782,7 @@
             <dt>개인정보책임자</dt><dd>w2848456@naver.com</dd>
           </dl>
           <a href="#" class="kakao-btn--sm">
-            <img src="img/kakao_icon.png" alt="" width="18">
+            <img src="img/kakao_icon.png" alt="" width="18" height="18">
             카카오 1:1 상담
           </a>
         </div>
@@ -706,8 +790,8 @@
       <div class="footer__bottom">
         <p class="footer__copy">COPYRIGHT &copy; (주)에이치쓰리 어페럴 ALL RIGHTS RESERVED.</p>
         <div class="footer__badges">
-          <img src="img/footer_godo.jpg" alt="NHN godo" loading="lazy">
-          <img src="img/footer_ssl.gif"  alt="SSL 결제보안 인증" loading="lazy">
+          <img src="img/footer_godo.jpg" width="130" height="28" alt="NHN godo" loading="lazy">
+          <img src="img/footer_ssl.gif" width="180" height="39"  alt="SSL 결제보안 인증" loading="lazy">
         </div>
       </div>
     </div>
