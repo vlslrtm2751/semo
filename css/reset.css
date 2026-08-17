@@ -2,6 +2,10 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* UA 스타일시트의 [hidden]{display:none} 은 특이도 0-1-0 이라 클래스 하나에도 진다.
+   hidden 속성은 "숨긴다"는 뜻이 확정적이어야 하므로 여기서 못을 박는다. */
+[hidden] { display: none !important; }
 body { -webkit-font-smoothing: antialiased; }
 ul, ol { list-style: none; }
 a { text-decoration: none; color: inherit; }
